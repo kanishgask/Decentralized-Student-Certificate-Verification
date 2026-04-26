@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Certificate Verification</title>
+<link rel="stylesheet"
+href="{{url_for('static',
+filename='style.css')}}">
+</head>
+
+<body>
+
+<h1>Blockchain Certificate Verification</h1>
+
+<h2>Add Certificate</h2>
+
+<form action="/add" method="post">
+<input name="id" placeholder="Certificate ID">
+<input name="name" placeholder="Student Name">
+<input name="course" placeholder="Course">
+<input name="university" placeholder="University">
+<input name="hash" placeholder="Certificate Hash">
+<button>Add</button>
+</form>
+
+
+<h2>Verify Certificate</h2>
+
+<form action="/verify" method="post">
+<input name="id"
+placeholder="Certificate ID">
+<button>Verify</button>
+</form>
+
+{% if result %}
+<h3>Verification Result</h3>
+
+<p>Name: {{result[0]}}</p>
+<p>Course: {{result[1]}}</p>
+<p>University: {{result[2]}}</p>
+<p>Hash: {{result[3]}}</p>
+<p>Valid: {{result[4]}}</p>
+
+{% endif %}
+
+</body>
+</html>
